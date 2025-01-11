@@ -1,17 +1,21 @@
-clear;clc;close all;
-addpath(genpath("../../../Students/Grads/CDO/CustomMatlabFunctions"))
-addpath("D:\CJT\HAPTIX Offline\")
-addpath("\\Neurorobotrt1\c\Users\Administrator\Box\NeuroRoboticsLab\JAGLAB\Projects\Adaptive EMG control")
-addpath("D:\Multi DOF Classification\")
+clear; clc; close all;
 
-files = {"D:\SmartHome\PvNP_Wrist_Forearm\S1_P\TaskData_20230308-174844.kdf", 
-    "D:\SmartHome\PvNP_Wrist_Forearm\S1_NP\TaskData_20230308-171058.kdf",
-    "D:\SmartHome\PvNP_Wrist_Forearm\S2_P\TaskData_20230310-160842.kdf",
-    "D:\SmartHome\PvNP_Wrist_Forearm\S2_NP\TaskData_20230310-152716.kdf",
-    "D:\SmartHome\PvNP_Wrist_Forearm\S3_P\TaskData_20230313-112317.kdf",
-    "D:\SmartHome\PvNP_Wrist_Forearm\S3_NP\TaskData_20230313-105333.kdf"};
+% Sensitive paths replaced with placeholders
+addpath(genpath("path_to_custom_functions"));
+addpath("path_to_haptix_offline");
+addpath("path_to_project_files");
+addpath("path_to_multi_dof_classification");
+
+% Placeholders for sensitive data file paths
+files = {"path_to_data/S1_P/TaskData_1.kdf", 
+         "path_to_data/S1_NP/TaskData_2.kdf",
+         "path_to_data/S2_P/TaskData_3.kdf", 
+         "path_to_data/S2_NP/TaskData_4.kdf", 
+         "path_to_data/S3_P/TaskData_5.kdf", 
+         "path_to_data/S3_NP/TaskData_6.kdf"};
 
 file_path = files{1};
+
 [Kinematics, Features,~,~,NIPTime] = readKDF(file_path);
 [states, features] = preprocessData(file_path);
 
